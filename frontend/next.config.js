@@ -4,3 +4,7 @@ const nextConfig = {
 }
 
 module.exports = nextConfig
+
+config.node = {
+  fs: 'empty',
+}
