@@ -1,6 +1,6 @@
 import AppLayout from "../components/AppLayout";
 
-export default function Home() {
+const Home = () => {
     return (
         <AppLayout>
         <div>
@@ -8,4 +8,5 @@ export default function Home() {
         </div>
         </AppLayout>
     )
-}
+};
+export default Home;

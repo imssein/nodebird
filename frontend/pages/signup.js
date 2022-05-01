@@ -6,7 +6,7 @@ import { useState, useCallback } from 'react';
 import AppLayout from '../components/AppLayout'
 
 const ErrorMessage = styled.div`
-    color: red;
+    color: red; 
 `;
 const ButtonWrapper = styled.div`
     margin-Top: 10px;

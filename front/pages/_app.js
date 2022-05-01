@@ -1,18 +1,23 @@
-import "antd/dist/antd.css";
-import Head from "next/head";
-import PropTypes from "prop-types";
+import React from 'react';
+import Head from 'next/head';
+import PropTypes from 'prop-types';
+import 'antd/dist/antd.css';
 
-export default function App({ Component, pageProps }) {
+import wrapper from '../store/configureStore';
+
+const NodeBird = ({ Component }) => {
   return (
-    <div>
+    <>
       <Head>
-        <meta charSet="utf-8" />
         <title>NodeBird</title>
       </Head>
-      <Component {...pageProps} />
-    </div>
+      <Component />
+    </>
   );
-}
-App.propTypes = {
-    Component: PropTypes.elementType.isRequired,
-  }
+};
+
+NodeBird.propTypes = {
+  Component: PropTypes.elementType.isRequired,
+};
+
+export default wrapper.withRedux(NodeBird);
