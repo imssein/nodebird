@@ -4,28 +4,31 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next"
+    "dev": "next -p 3060",
+    "build": "next build",
+    "start": "next start"
   },
-  "author": "sein",
-  "license": "ISC",
+  "author": "Sein",
+  "license": "MIT",
   "dependencies": {
-    "@ant-design/icons": "^4.7.0",
-    "@reduxjs/toolkit": "^1.8.1",
-    "antd": "^4.20.0",
-    "create-store": "^1.0.0",
-    "next": "^12.1.5",
-    "next-redux-wrapper": "^7.0.5",
-    "prop-types": "^15.8.1",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-redux": "^8.0.1",
-    "redux": "^4.2.0",
-    "redux-devtools-extension": "^2.13.9",
-    "styled-components": "^5.3.5"
+    "antd": "^4.6.6",
+    "next": "^9.5.4",
+    "next-redux-wrapper": "^6.0.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.1",
+    "react-slick": "^0.27.11",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "styled-components": "^5.2.0"
   },
   "devDependencies": {
-    "eslint": "^8.14.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-react-hooks": "^4.4.0"
+    "eslint": "^7.10.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-react": "^7.21.3",
+    "eslint-plugin-react-hooks": "^4.1.2",
+    "nodemon": "^2.0.4",
+    "webpack": "^4.44.2"
   }
 }
