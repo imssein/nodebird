@@ -29,6 +29,7 @@ export default function PostCard({ post }) {
   return (
     <div style={{ marginBottom: 20 }}>
       <Card
+    //   포스트 이미지가 한개 이상이라도 있을 때 
         cover={post.Images[0] && <PostImages images={post.Images} />}
         actions={[
           // 배열안에 jsx는 항상 key를 넣어줘야함.

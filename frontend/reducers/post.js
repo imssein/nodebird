@@ -8,9 +8,11 @@ export const initialState = {
         content: '첫 번쨰 게시글 #해쉬태그 #익스프레스',
         Images: [{
             src: 'https://images.unsplash.com/photo-1559181567-c3190ca9959b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGZydWl0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60'
-        }, {
+        }, 
+        {
             src: 'https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fGZydWl0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60'
-        }, {
+        },
+         {
             src: 'https://images.unsplash.com/photo-1595475207225-428b62bda831?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGZydWl0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60'
         }],
         Comments: [{ 
