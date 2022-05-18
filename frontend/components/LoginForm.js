@@ -1,34 +1,38 @@
 import { useState, useCallback } from "react";
 import { Form, Input, Button } from "antd";
 import Link from "next/link";
-import styled from 'styled-components';
+import styled from "styled-components";
+import PropTypes from "prop-types";
+import useInput from "../hooks/useInput";
 
 const ButtonWrapper = styled.div`
-    margin-top: 10px;
+  margin-top: 10px;
 `;
 
 const FormWrapper = styled(Form)`
-    padding: 10px;
+  padding: 10px;
 `;
 
+export default function LoginForm({ setIsLoggedIn }) {
+  const [id, onChangeId] = useInput("");
+  const [password, onChangepassword] = useInput("");
+ 
+  // custom hook을 이용하여 반복되는 부분 처리함. 
+  //   const [id, setId] = useState("");
+  //   const [password, setPassword] = useState("");
 
-export default function LoginForm({setIsLoggedIn}) {
-  const [id, setId] = useState("");
-  const [password, setPassword] = useState("");
+  //   const onChangeId = useCallback((e) => {
+  //     setId(e.target.value);
+  //   }, []);
 
-  // 반복되는 부분들은 custom hook을 이용하여 처리할 수 있음
-  const onChangeId = useCallback((e) => {
-    setId(e.target.value);
-  }, []);
+  //   const onChangepassword = useCallback((e) => {
+  //     setPassword(e.target.value);
+  //   }, []);
 
-  const onChangepassword = useCallback((e) => {
-    setPassword(e.target.value);
-  }, []);
-  
   const onSubmitForm = useCallback(() => {
     console.log(id, password);
     setIsLoggedIn(true);
-  }, [id,password]);
+  }, [id, password]);
 
   return (
     <FormWrapper onFinish={onSubmitForm}>
@@ -61,3 +65,7 @@ export default function LoginForm({setIsLoggedIn}) {
     </FormWrapper>
   );
 }
+
+LoginForm.protoType = {
+  setIsLoggedIn: PropTypes.func.isRequired,
+};
