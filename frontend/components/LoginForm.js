@@ -7,7 +7,12 @@ const ButtonWrapper = styled.div`
     margin-top: 10px;
 `;
 
-export default function LoginForm() {
+const FormWrapper = styled(Form)`
+    padding: 10px;
+`;
+
+
+export default function LoginForm({setIsLoggedIn}) {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
 
@@ -19,9 +24,14 @@ export default function LoginForm() {
   const onChangepassword = useCallback((e) => {
     setPassword(e.target.value);
   }, []);
+  
+  const onSubmitForm = useCallback(() => {
+    console.log(id, password);
+    setIsLoggedIn(true);
+  }, [id,password]);
 
   return (
-    <Form>
+    <FormWrapper onFinish={onSubmitForm}>
       <div>
         <label htmlFor="user-id">아이디</label>
         <br />
@@ -48,6 +58,6 @@ export default function LoginForm() {
           </a>
         </Link>
       </ButtonWrapper>
-    </Form>
+    </FormWrapper>
   );
 }

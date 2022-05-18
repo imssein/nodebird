@@ -1,4 +1,3 @@
-
 import propTypes from "prop-types";
 import Link from "next/link";
 import { useState } from "react";
@@ -11,9 +10,9 @@ const SearchInput = styled(Input.Search)`
   vertical-align: middle;
 `;
 export default function AppLayout({ children }) {
-  //서버쪽 완성 전 상태 관리를 위해 dummy data 사용 
+  //서버쪽 완성 전 상태 관리를 위해 dummy data 사용
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  
+
   return (
     <div>
       <Menu mode="horizontal">
@@ -40,7 +39,11 @@ export default function AppLayout({ children }) {
       <Row gutter={8}>
         <Col xs={24} md={6}>
           {/* 로그인이 되어있으면 유저 프로필을 보여주고 안되어있으면 로그인폼을 보여준다. */}
-          {isLoggedIn ? <UserProfile/> : <LoginForm /> }
+          {isLoggedIn ? (
+            <UserProfile setIsLoggedIn={setIsLoggedIn} />
+          ) : (
+            <LoginForm setIsLoggedIn={setIsLoggedIn} />
+          )}
         </Col>
         <Col xs={24} md={12}>
           {children}
