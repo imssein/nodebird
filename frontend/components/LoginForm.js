@@ -1,13 +1,17 @@
 import { useState, useCallback } from "react";
 import { Form, Input, Button } from "antd";
 import Link from "next/link";
+import styled from 'styled-components';
+
+const ButtonWrapper = styled.div`
+    margin-top: 10px;
+`;
 
 export default function LoginForm() {
-
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
 
-// 반복되는 부분들은 custom hook을 이용하여 처리할 수 있음 
+  // 반복되는 부분들은 custom hook을 이용하여 처리할 수 있음
   const onChangeId = useCallback((e) => {
     setId(e.target.value);
   }, []);
@@ -34,7 +38,7 @@ export default function LoginForm() {
           required
         />
       </div>
-      <div>
+      <ButtonWrapper>
         <Button type="primary" htmlType="submit" loading={false}>
           로그인
         </Button>
@@ -43,7 +47,7 @@ export default function LoginForm() {
             <Button>회원가입</Button>
           </a>
         </Link>
-      </div>
+      </ButtonWrapper>
     </Form>
   );
 }
