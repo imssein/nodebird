@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import Link from "next/link";
-import { useState } from "react";
+import { useSelector } from "react-redux";
 import { Input, Menu, Row, Col } from "antd";
 import UserProfile from "./UserProfile";
 import LoginForm from "./LoginForm";
@@ -12,7 +12,9 @@ const SearchInput = styled(Input.Search)`
 `;
 export default function AppLayout({ children }) {
   //서버쪽 완성 전 상태 관리를 위해 dummy data 사용
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  //const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { isLoggedIn }  = useSelector((state) => state.user.isLoggedIn);
+  
   const router = useRouter();
 
 
@@ -30,11 +32,9 @@ export default function AppLayout({ children }) {
       {/* gutter : column 사이 간격  */}
       <Row gutter={8}>
         <Col xs={24} md={6}>
-          {/* 로그인이 되어있으면 유저 프로필을 보여주고 안되어있으면 로그인폼을 보여준다. */}
-          {isLoggedIn ? (
-            <UserProfile setIsLoggedIn={setIsLoggedIn} />
+          {isLoggedIn ? ( <UserProfile />
           ) : (
-            <LoginForm setIsLoggedIn={setIsLoggedIn} />
+            <LoginForm />
           )}
         </Col>
         <Col xs={24} md={12}>
