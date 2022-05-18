@@ -1,10 +1,19 @@
 import { createWrapper } from "next-redux-wrapper";
-import { createStore } from "redux";
+import { applyMiddleware, compose, createStore } from "redux";
+import { composeWithDevTools } from 'redux-devtools-extension';
+
 import reducer from "../reducers";
 
 
 const configureStore = () => { 
-    const store = createStore(reducer);
+    const middlewares = []; 
+    // 개발용 미들웨어와 배포용 미들웨어는 다르다. 
+    const enhancer = process.env.NODE_ENV === 'production'
+        ? compose(applyMiddleware(...middlewares))
+        : composeWithDevTools(applyMiddleware(...middlewares)) 
+        // history가 쌓이면 메모리를 많이 잡아먹고, 
+        // 중앙데이터가 변화하는걸 볼 수 있기때문에 보안성으로 취약할 수 있기 때문에 
+    const store = createStore(reducer, enhancer);
     store.dispatch({
         type: 'CHANGE_NICKNAME',
         data: 'boogicho',

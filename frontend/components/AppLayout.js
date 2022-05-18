@@ -13,11 +13,9 @@ const SearchInput = styled(Input.Search)`
 export default function AppLayout({ children }) {
   //서버쪽 완성 전 상태 관리를 위해 dummy data 사용
   //const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const { isLoggedIn }  = useSelector((state) => state.user.isLoggedIn);
+  const { isLoggedIn }  = useSelector((state) => state.user);
   
   const router = useRouter();
-
-
   return (
     <div>
       <Menu 
@@ -32,10 +30,7 @@ export default function AppLayout({ children }) {
       {/* gutter : column 사이 간격  */}
       <Row gutter={8}>
         <Col xs={24} md={6}>
-          {isLoggedIn ? ( <UserProfile />
-          ) : (
-            <LoginForm />
-          )}
+          {isLoggedIn ? ( <UserProfile />) : ( <LoginForm /> )}
         </Col>
         <Col xs={24} md={12}>
           {children}
