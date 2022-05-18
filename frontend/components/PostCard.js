@@ -12,6 +12,7 @@ import React, { useState, useCallback } from "react";
 import { useSelector } from "react-redux";
 
 import PostImages from "./PostImages";
+import CommentForm from "./CommentForm";
 
 export default function PostCard({ post }) {
   const [liked, setLiked] = useState(false);
@@ -67,9 +68,26 @@ export default function PostCard({ post }) {
           description={post.content}
         />
       </Card>
-      {commentFormOpened && <div>댓글 부분</div>}
-      {/* <CommetnForm />
-            <Comments /> */}
+      {commentFormOpened && (
+      <div>
+          {/* 댓글 작성할 때 게시글에 속해있기때문에 post를 넘겨줌(게시글id) */}
+          <CommentForm post={post}/>
+          <List 
+            header={`${post.Comments.length}개의 댓글`}
+            itemLayout="horizontal"
+            dataSource={post.Comments}
+            renderItem={(item) => (
+                <li>
+                    <Comment
+                        author={item.User.nickname}
+                        avatar={<Avatar>{item.User.nickname[0]}</Avatar>}
+                        content={item.content}
+                    />
+                </li>
+            )}
+            />
+      </div>)}
+      
     </div>
   );
 }
